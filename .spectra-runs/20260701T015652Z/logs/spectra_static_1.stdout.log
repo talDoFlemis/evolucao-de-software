@@ -1,0 +1,18 @@
+I’m checking the package contents and then I’ll implement the Go translation against the static spec only.
+I found only the task/context files, so I’m reading the modality metadata before writing the new package.
+I’ve got the behavior mapped from the spec and source. Next I’m adding a minimal self-contained Go `main` package with option parsing, fast copy, and the formatted stream processor.
+I’ve got a first draft in place. I’m fixing two correctness issues now: pending `\r` handling across file boundaries and the quoted-byte rules for tabs/newlines.
+I’m tightening the last edge cases before building: self-copy protection on the fast path and the deferred-CR state reset when a CR is emitted literally.
+The implementation is in place. I’m building now to catch any syntax or type issues, then I’ll do a quick sanity pass on the option matrix.
+The build exposed one unused import. I’m removing that and rebuilding.
+The program builds cleanly. I’m formatting the file and then I’ll wrap up with what changed.
+Implemented a standalone Go `cat` translation in `spectra_static_1`:
+
+- Added `go.mod`
+- Added `main.go`
+- Supports `-A -b -e -E -n -s -t -T -u -v` and the documented long forms
+- Preserves formatted-state across input files
+- Handles self-copy protection and fast byte-for-byte copying when no formatting flags are active
+
+Verification:
+- `go build .` succeeded

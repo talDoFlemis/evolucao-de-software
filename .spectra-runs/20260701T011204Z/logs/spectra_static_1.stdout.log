@@ -1,0 +1,18 @@
+I’m checking the package layout and then I’ll translate the C behavior into a minimal Go `main` package with the specified options and state handling.
+I found only the source/spec inputs so far. Next I’m checking the candidate metadata and then I’ll write the Go implementation from scratch.
+I’ve got the behavior mapped out: a single streaming transformer with persistent line-number, blank-line, and pending-CR state across files. I’m writing that now in a minimal `main` package.
+I found a couple of correctness issues in the first draft: input failures weren’t propagating, and tab visibility inside `-v` mode needed a fix. I’m patching those now before building.
+I’m adding the last parity pieces now: flushing a trailing pending `CR` at EOF and reporting stdout write failures cleanly. After that I’ll build and fix whatever the compiler flags.
+I caught one more semantic bug before building: `-v` mode must print `CR` as `^M` immediately, not as a pending carriage return. I’m checking that branch and removing the bad special-case.
+The implementation is in place. I’m building it now to catch compile errors and then I’ll do a quick sanity check on the argument parsing and core stream behavior.
+Implemented a standalone Go `cat` in `main.go` with `go.mod`.
+
+- Supports `-A -b -e -E -n -s -t -T -u -v` and the listed long options
+- Preserves line-number, blank-squeeze, and pending-CR state across files
+- Handles `-` as stdin and processes argv order
+- Builds cleanly with `go build .`
+
+Sanity-checked:
+- plain numbering
+- `-vT` control-character rendering
+- `-E` CRLF boundary handling

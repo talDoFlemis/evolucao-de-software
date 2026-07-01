@@ -1,0 +1,15 @@
+I’m checking the package layout first, then I’ll implement the Go cat and verify it builds.
+I’ve got the behavior mapped out from the C source. Next I’m writing the Go CLI with the supported short and long options, streaming copy, numbering, squeezing, and visible-character handling.
+The implementation is in place. I’m building it now to catch any Go compile issues or behavioral mistakes before I wrap up.
+The first build found a duplicate `printHelp` definition. I’m trimming that and then rebuilding.
+The build passed. I’m marking the implementation and verification complete, then I’ll summarize the behavior and any caveats.
+Implemented a standalone Go `cat` in `main.go` with `go.mod`.
+
+- Supports `-A`, `-b`, `-e`, `-E`, `-n`, `-s`, `-t`, `-T`, `-u`, `-v`
+- Supports the long forms from `cat.c`
+- Streams files/stdin, handles line numbering, squeeze-blank, and visible-character output
+- `go build .` passes
+
+Files added:
+- `go.mod`
+- `main.go`

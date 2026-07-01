@@ -1,0 +1,15 @@
+I’m checking the package layout first, then I’ll translate the `cat` behavior into a small Go CLI and verify it builds.
+I’ve got the behavior model pinned down. Next I’m adding a minimal Go `main` with manual GNU-style option parsing and byte-wise rendering so the line-numbering and `-v/-E/-T` interactions stay faithful.
+The translation is in place. I’m doing a quick source read now to catch any compile or control-flow mistakes before I build it.
+I’ve finished the first pass. I’m building now to catch any Go-level issues, then I’ll fix anything the compiler or runtime semantics expose.
+The build passed and the basic smoke checks matched the expected cat formatting. I’m marking the implementation done and leaving the repo in a buildable state.
+Implemented a standalone Go `cat` in `main.go` with `go.mod`.
+
+- Supports `-A`, `-b`, `-e`, `-E`, `-n`, `-s`, `-t`, `-T`, `-u`, `-v`
+- Supports the matching long forms
+- Handles stdin, multiple files, numbering, squeezing blanks, and nonprinting/tab/end-of-line rendering
+- Builds cleanly with `go build .`
+
+Files added:
+- `go.mod`
+- `main.go`

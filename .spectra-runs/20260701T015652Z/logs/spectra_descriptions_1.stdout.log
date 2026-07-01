@@ -1,0 +1,15 @@
+I’m checking the package layout and then I’ll implement the Go version in the current directory.
+I’ve confirmed this package is basically empty aside from the task inputs, so I can implement the translator directly without refactoring existing code.
+I’m writing the Go CLI now: manual GNU-style option parsing, line state carried across files, and byte-wise rendering for `-v/-E/-T` combinations.
+I caught one GNU parity issue before verifying: `-b` must override `-n`, so I’m fixing the numbering decision and then I’ll build and smoke-test.
+The build passed. I’m running a couple of focused smoke tests now for numbering and CRLF rendering, since those are the main parity traps.
+The implementation is working, and I’m doing one last cleanup pass to remove dead state before I wrap up.
+Implemented a standalone Go `cat` clone in this package.
+
+- Added `go.mod` and `main.go`
+- Supports `-A`, `-b`, `-e`, `-E`, `-n`, `-s`, `-t`, `-T`, `-u`, `-v` and the long forms
+- Preserves line numbering and blank-squeeze state across files
+- Handles CRLF display for `-E`/`-e`
+- Includes self-copy detection and stdin handling
+
+Verified with `go build .` and a few smoke tests.

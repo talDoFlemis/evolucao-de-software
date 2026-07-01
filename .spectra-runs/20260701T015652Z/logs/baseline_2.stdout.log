@@ -1,0 +1,19 @@
+I’m checking the package layout first, then I’ll translate the C behavior into a small Go CLI and verify it builds.
+I’ve confirmed this package is empty aside from the C reference, so I can create the Go module from scratch without conflicting files. Next I’m checking the naming hints before writing the implementation.
+I’ve got the behavior mapped: I’m going to implement a single-stream byte processor with GNU-style line numbering, blank squeezing, and the `-v/-E/-T` quoting rules, then verify it with `go build .`.
+The implementation is in place. I’m building it now to catch any compile/runtime mismatches, then I’ll fix whatever the compiler surfaces.
+The compiler caught one type mismatch in the byte renderer. I’m correcting that and rebuilding.
+The build passes. I’m doing a few targeted smoke tests now for numbering, blank squeezing, and the `-A/-e/-t` quoting paths.
+The smoke tests match the expected `cat` behavior for the covered cases. I’m checking the final diff/status so I can summarize exactly what changed.
+Implemented a standalone Go `cat` in `main.go` with `go.mod`.
+
+- Supports `-A`, `-b`, `-e`, `-E`, `-n`, `-s`, `-t`, `-T`, `-u`, `-v` and long forms.
+- Handles stdin, multiple files, line numbering, blank squeezing, and nonprinting/tab/end-of-line quoting.
+- `go build .` passes.
+
+Smoke-tested:
+- `-n`
+- `-s`
+- `-A`
+- `-E`
+- `-b` vs `-n` precedence

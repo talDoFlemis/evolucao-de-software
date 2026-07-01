@@ -1,0 +1,11 @@
+I’m mapping the package and then I’ll translate the C behavior into a minimal Go `main` package with the required flags and GNU-style output rules.
+I’ve got the translation shape: one streaming state machine with GNU-style option parsing, state preserved across files for numbering and `-s`, and bytewise transforms for `-v/-t/-E`. I’m writing that now.
+I’ve got the first pass in place. I’m trimming a couple of GNU-compatibility mismatches now and then I’ll build it.
+The code is formatted and the build path is green. I’m running a direct `go build .` once more to verify the package itself, not the wrapper.
+Implemented a standalone Go `cat` in the package root.
+
+- Added `go.mod`
+- Added `main.go`
+- Supports `-A`, `-b`, `-e`, `-E`, `-n`, `-s`, `-t`, `-T`, `-u`, `-v` and the GNU long forms used in `cat.c`
+- Preserves line-numbering and blank-squeeze state across files
+- Verified with `go build .`
