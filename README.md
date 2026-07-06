@@ -69,15 +69,15 @@ flowchart TB
 Use the faster model that produced the successful local run:
 
 ```bash
-./run_spectra_cat_go.sh --model openai/gpt-5.4-mini-fast --auto-approve
+./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --auto-approve
 ```
 
 Useful options:
 
 ```bash
-./run_spectra_cat_go.sh --model openai/gpt-5.4-mini-fast --candidates 3 --auto-approve
-./run_spectra_cat_go.sh --model openai/gpt-5.4-mini-fast --auto-approve --opencode-timeout 300
-./run_spectra_cat_go.sh --model openai/gpt-5.4-mini-fast --evaluate-existing .spectra-runs/20260701T015652Z
+./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --candidates 3 --auto-approve
+./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --auto-approve --opencode-timeout 300
+./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --evaluate-existing .spectra-runs/20260701T015652Z
 ```
 
 Generated run artifacts are ignored by git under `.spectra-runs/`.
