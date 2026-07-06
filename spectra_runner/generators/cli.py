@@ -3,9 +3,11 @@ from __future__ import annotations
 import json
 import subprocess
 import tempfile
+import time
 from pathlib import Path
 
 from .base import FILES_JSON_SCHEMA, GenerationError, GenerationRequest, ResponseFormat
+from ..logging_utils import logger
 
 
 class CliGenerator:
@@ -29,6 +31,15 @@ class CliGenerator:
                 schema_path = Path(temp) / "files.schema.json"
                 schema_path.write_text(json.dumps(FILES_JSON_SCHEMA))
             try:
+                started = time.monotonic()
+                logger.debug(
+                    "starting CLI provider=%s executable=%s model=%s request=%s cwd=%s",
+                    self.provider,
+                    self.executable,
+                    self.model,
+                    request.name,
+                    temp,
+                )
                 result = subprocess.run(
                     self.command(request, schema_path),
                     input=request.prompt if self.prompt_via_stdin else None,
@@ -49,6 +60,14 @@ class CliGenerator:
                 )
             if not result.stdout.strip():
                 raise GenerationError(f"{self.provider} returned an empty response")
+            logger.debug(
+                "CLI completed provider=%s request=%s duration=%.3fs stdout_chars=%d stderr_chars=%d",
+                self.provider,
+                request.name,
+                time.monotonic() - started,
+                len(result.stdout),
+                len(result.stderr),
+            )
             return result.stdout.strip()
 
     def version(self) -> str:

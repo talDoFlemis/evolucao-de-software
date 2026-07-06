@@ -43,6 +43,7 @@ def config(tmp_path: Path) -> Config:
         codex_bin="codex",
         opencode_bin="opencode",
         antigravity_bin="agy",
+        log_level="INFO",
     )
 
 

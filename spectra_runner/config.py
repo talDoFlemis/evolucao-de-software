@@ -26,6 +26,7 @@ class Config:
     codex_bin: str
     opencode_bin: str
     antigravity_bin: str
+    log_level: str
 
 
 def utc_run_id() -> str:
@@ -77,6 +78,12 @@ def parse_args(argv: list[str] | None = None) -> Config:
         type=Path,
         help="rebuild and rescore an existing run without generation",
     )
+    parser.add_argument(
+        "--log-level",
+        choices=("DEBUG", "INFO", "WARNING", "ERROR"),
+        default="DEBUG",
+        help="console log level; the run log always captures DEBUG",
+    )
     args = parser.parse_args(argv)
 
     if args.evaluate_existing is None:
@@ -100,4 +107,5 @@ def parse_args(argv: list[str] | None = None) -> Config:
         codex_bin=os.environ.get("CODEX_BIN", "codex"),
         opencode_bin=os.environ.get("OPENCODE_BIN", "opencode"),
         antigravity_bin=os.environ.get("ANTIGRAVITY_BIN", "agy"),
+        log_level=args.log_level,
     )

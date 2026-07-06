@@ -14,6 +14,7 @@ from pathlib import Path
 from .config import Config
 from .generation import GenerationService, parse_generated_files, write_generated_files
 from .generators import GenerationError, GenerationRequest, ResponseFormat
+from .logging_utils import configure_logging, logger
 
 
 TEST_NAMES = [
@@ -51,15 +52,18 @@ class Paths:
 
 
 def info(message: str) -> None:
-    print(message, file=sys.stderr)
+    logger.info(message)
 
 
 def warn(message: str) -> None:
-    print(f"warning: {message}", file=sys.stderr)
+    logger.warning(message)
 
 
 def die(message: str) -> None:
-    print(f"error: {message}", file=sys.stderr)
+    if logger.handlers:
+        logger.error(message)
+    else:
+        print(f"error: {message}", file=sys.stderr)
     raise SystemExit(1)
 
 
@@ -91,6 +95,7 @@ def resolve_paths(config: Config) -> Paths:
 
 
 def ensure_environment(config: Config) -> None:
+    logger.debug("validating source=%s oracle=%s", config.source, config.oracle)
     if not config.source.is_file():
         die(f"source file not found: {config.source}")
     if not os.access(config.oracle, os.X_OK):
@@ -105,6 +110,7 @@ def ensure_environment(config: Config) -> None:
     for command in commands:
         if not executable_exists(command):
             die(f"required command not found: {command}")
+        logger.debug("validated executable: %s", command)
 
 
 def create_run_dirs(paths: Paths, config: Config) -> None:
@@ -249,7 +255,9 @@ def execute_case(
 
 
 def generate_oracle_outputs(paths: Paths, config: Config) -> None:
+    info(f"generating oracle outputs for {len(TEST_NAMES)} tests")
     for test_name in TEST_NAMES:
+        logger.debug("running oracle test=%s", test_name)
         execute_case(
             config.oracle,
             test_name,
@@ -300,6 +308,7 @@ def absolute(path: Path) -> str:
 
 
 def generate_specs(paths: Paths, service: GenerationService) -> None:
+    info("generating static and natural-language specifications")
     source = (paths.run / "cat.c").read_text()
     static_prompt = paths.prompts / "static-spec.prompt.md"
     static_prompt.write_text(
@@ -450,8 +459,10 @@ def build_candidate(candidate: str, paths: Paths) -> tuple[bool, Path]:
     build_log = paths.reports / f"{candidate}.build.log"
     if not (package_dir / "go.mod").is_file():
         build_log.write_text("missing go.mod\n")
+        warn(f"candidate {candidate} cannot build: missing go.mod")
         return False, binary
 
+    logger.debug("tidying candidate=%s package=%s", candidate, package_dir)
     with build_log.open("wb") as log:
         tidy = subprocess.run(
             ["go", "mod", "tidy"],
@@ -461,7 +472,9 @@ def build_candidate(candidate: str, paths: Paths) -> tuple[bool, Path]:
             check=False,
         )
         if tidy.returncode != 0:
+            warn(f"go mod tidy failed for {candidate}; see {build_log}")
             return False, binary
+        logger.debug("building candidate=%s binary=%s", candidate, binary)
         build = subprocess.run(
             ["go", "build", "-o", str(binary), "."],
             cwd=package_dir,
@@ -469,9 +482,10 @@ def build_candidate(candidate: str, paths: Paths) -> tuple[bool, Path]:
             stderr=subprocess.STDOUT,
             check=False,
         )
-    return build.returncode == 0 and binary.is_file() and os.access(
-        binary, os.X_OK
-    ), binary
+    built = build.returncode == 0 and binary.is_file() and os.access(binary, os.X_OK)
+    if not built:
+        warn(f"go build failed for {candidate}; see {build_log}")
+    return built, binary
 
 
 def append_tsv(path: Path, row: list[object]) -> None:
@@ -489,6 +503,7 @@ def score_candidate(
     config: Config,
 ) -> None:
     total = len(TEST_NAMES)
+    info(f"evaluating candidate {candidate} ({group}/{modality})")
     built, binary = build_candidate(candidate, paths)
     if not built:
         append_tsv(
@@ -523,6 +538,15 @@ def score_candidate(
         ).read_bytes()
         status_match = actual_status == expected_status
         test_pass = stdout_match and stderr_match and status_match
+        logger.debug(
+            "candidate=%s test=%s pass=%s stdout=%s stderr=%s status=%s",
+            candidate,
+            test_name,
+            test_pass,
+            stdout_match,
+            stderr_match,
+            status_match,
+        )
         if test_pass:
             passed += 1
         append_tsv(
@@ -541,6 +565,7 @@ def score_candidate(
         )
 
     score = passed / total
+    info(f"candidate {candidate} passed {passed}/{total} tests ({score:.2%})")
     append_tsv(
         paths.reports / "scores.tsv",
         [
@@ -560,8 +585,10 @@ def score_candidate(
 def generate_all_candidates(
     paths: Paths, config: Config, service: GenerationService
 ) -> None:
+    total = config.candidates * 2
     for i in range(1, config.candidates + 1):
         candidate = f"baseline_{i}"
+        info(f"candidate {i}/{total}: {candidate}")
         try:
             generate_candidate(candidate, "baseline", "baseline", paths, service)
         except GenerationError as exc:
@@ -570,6 +597,7 @@ def generate_all_candidates(
         modality = candidate_modality_for_order(i)
         round_number = ((i - 1) // 3) + 1
         candidate = f"spectra_{modality}_{round_number}"
+        info(f"candidate {config.candidates + i}/{total}: {candidate}")
         try:
             generate_candidate(candidate, "spectra", modality, paths, service)
         except GenerationError as exc:
@@ -577,6 +605,7 @@ def generate_all_candidates(
 
 
 def evaluate_all_candidates(paths: Paths, config: Config) -> None:
+    info(f"starting evaluation of {config.candidates * 2} candidates")
     with (paths.reports / "scores.tsv").open("w", newline="") as file:
         csv.writer(file, delimiter="\t", lineterminator="\n").writerow(
             [
@@ -716,8 +745,20 @@ def run(config: Config, service: GenerationService | None = None) -> int:
     ensure_environment(config)
     paths = resolve_paths(config)
     create_run_dirs(paths, config)
+    configure_logging(
+        paths.logs / "run.log",
+        config.log_level,
+        append=config.evaluate_existing is not None,
+    )
 
     info(f"run directory: {paths.run}")
+    info(
+        f"mode: {'evaluation-only' if config.evaluate_existing else 'generation and evaluation'}"
+    )
+    info(
+        f"candidates/group: {config.candidates}; test timeout: {config.test_timeout}s; "
+        f"generation timeout: {config.generation_timeout}s; max retries: {config.max_retries}"
+    )
     if config.evaluate_existing is None:
         info(f"provider/model: {config.provider}/{config.model}")
 

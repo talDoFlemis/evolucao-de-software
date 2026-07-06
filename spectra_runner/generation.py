@@ -10,6 +10,7 @@ from typing import Callable
 
 from .config import Config
 from .generators import GenerationError, GenerationRequest, Generator, ResponseFormat
+from .logging_utils import heartbeat, logger
 
 
 @dataclass(frozen=True)
@@ -98,27 +99,62 @@ class GenerationService:
         self.calls: list[dict[str, object]] = []
         self.started_at = datetime.now(timezone.utc).isoformat()
         self.generator_version = generator.version()
+        logger.debug(
+            "initialized generator provider=%s model=%s version=%s",
+            generator.provider,
+            generator.model,
+            self.generator_version,
+        )
 
     def generate(self, request: GenerationRequest) -> str:
         prompt_hash = sha256_text(request.prompt)
         last_error: Exception | None = None
         for attempt in range(1, self.config.max_retries + 2):
             started = datetime.now(timezone.utc)
+            logger.info(
+                "generation step=%s attempt=%d/%d format=%s prompt_chars=%d",
+                request.name,
+                attempt,
+                self.config.max_retries + 1,
+                request.response_format.value,
+                len(request.prompt),
+            )
             try:
-                response = self.generator.generate(request)
+                with heartbeat(
+                    f"generation step={request.name}", self.config.generation_timeout
+                ):
+                    response = self.generator.generate(request)
                 if request.response_format is ResponseFormat.FILES_JSON:
                     parse_generated_files(response)
                 self._record(request, prompt_hash, attempt, started, "success", None)
                 self._write_log(request.name, attempt, response)
                 self.write_manifest()
+                logger.info(
+                    "generation completed step=%s attempt=%d duration=%.3fs response_chars=%d",
+                    request.name,
+                    attempt,
+                    (datetime.now(timezone.utc) - started).total_seconds(),
+                    len(response),
+                )
                 return response
             except (GenerationError, ValueError) as exc:
                 last_error = exc
                 self._record(request, prompt_hash, attempt, started, "failed", str(exc))
                 self._write_log(request.name, attempt, str(exc), error=True)
                 self.write_manifest()
+                logger.warning(
+                    "generation failed step=%s attempt=%d duration=%.3fs error=%s",
+                    request.name,
+                    attempt,
+                    (datetime.now(timezone.utc) - started).total_seconds(),
+                    exc,
+                )
                 if attempt <= self.config.max_retries:
-                    self.sleep(min(2 ** (attempt - 1), 8))
+                    delay = min(2 ** (attempt - 1), 8)
+                    logger.info(
+                        "retrying generation step=%s after %ds", request.name, delay
+                    )
+                    self.sleep(delay)
         raise GenerationError(
             f"{request.name} failed after {self.config.max_retries + 1} attempts: {last_error}"
         )
@@ -139,6 +175,7 @@ class GenerationService:
             "calls": self.calls,
         }
         (self.run_dir / "run.json").write_text(json.dumps(manifest, indent=2) + "\n")
+        logger.debug("updated run manifest calls=%d", len(self.calls))
 
     def _record(
         self,

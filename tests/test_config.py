@@ -36,3 +36,4 @@ def test_generation_configuration() -> None:
     assert config.model == "gpt-5"
     assert config.generation_timeout == 30
     assert config.max_retries == 4
+    assert config.log_level == "DEBUG"

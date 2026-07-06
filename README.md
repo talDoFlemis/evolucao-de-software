@@ -97,6 +97,12 @@ uv run ./run_spectra_cat_go.py --provider codex --model MODEL --generation-timeo
 uv run ./run_spectra_cat_go.py --evaluate-existing .spectra-runs/20260701T015652Z
 ```
 
+Progress is written to stderr and to `logs/run.log`. Provider calls emit a
+heartbeat every 30 seconds with elapsed time and the configured timeout. Console
+logging defaults to `DEBUG`, including per-test matches, subprocess timing,
+response sizes, and OpenRouter token usage. The file log always captures DEBUG
+details.
+
 Generated run artifacts are ignored by git under `.spectra-runs/`.
 Each new run includes `run.json` with provider/model data, hashes, versions, timings,
 and generation-attempt outcomes. Secrets are never written to this manifest.
