@@ -10,7 +10,7 @@ from spectra_runner.generators.cli import (
 from spectra_runner.generators.openrouter import OpenRouterGenerator
 
 
-def test_codex_command_is_read_only_ephemeral_and_schema_constrained() -> None:
+def test_codex_command_is_read_only_ephemeral_without_native_schema() -> None:
     generator = CodexGenerator("codex-custom", "gpt-test", 10)
     command = generator.command(
         GenerationRequest("candidate", "prompt", ResponseFormat.FILES_JSON),
@@ -20,7 +20,7 @@ def test_codex_command_is_read_only_ephemeral_and_schema_constrained() -> None:
     assert command[:2] == ["codex-custom", "exec"]
     assert ["--sandbox", "read-only"] == command[command.index("--sandbox") :][:2]
     assert "--ephemeral" in command
-    assert command[-2:] == ["--output-schema", "schema.json"]
+    assert "--output-schema" not in command
 
 
 def test_opencode_command_uses_pure_mode_and_embedded_prompt() -> None:

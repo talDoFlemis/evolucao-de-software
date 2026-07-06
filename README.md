@@ -175,11 +175,13 @@ Go source file. Candidate prompts prohibit third-party dependencies; the build s
 then runs `go mod tidy` before compilation.
 
 OpenRouter uses strict structured output through the official `openai` package and
-requires a model that supports JSON Schema. Codex additionally receives the schema
-through `--output-schema` and runs read-only and ephemeral. OpenCode runs in pure
-mode. Antigravity uses sandboxed `agy --print`. CLI strategies run from temporary
-directories rather than candidate package directories; only the Python orchestrator
-writes validated files.
+requires a model that supports JSON Schema. Codex runs read-only and ephemeral;
+native `--output-schema` is deliberately not used because code-heavy responses can
+stall during schema finalization. Codex, OpenCode, and Antigravity outputs still pass
+the same strict local JSON validation before files are written. OpenCode runs in pure
+mode, while Antigravity uses sandboxed `agy --print`. CLI strategies run from
+temporary directories rather than candidate package directories; only the Python
+orchestrator writes validated files.
 
 ### Failure and retry behavior
 

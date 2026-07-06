@@ -50,8 +50,21 @@ class CliGenerator:
                     cwd=temp,
                 )
             except subprocess.TimeoutExpired as exc:
+                partial_stdout = _timeout_text(exc.stdout)
+                partial_stderr = _timeout_text(exc.stderr)
+                logger.debug(
+                    "CLI timeout provider=%s request=%s partial_stdout_chars=%d "
+                    "partial_stderr_chars=%d stderr_tail=%r",
+                    self.provider,
+                    request.name,
+                    len(partial_stdout),
+                    len(partial_stderr),
+                    partial_stderr[-2000:],
+                )
                 raise GenerationError(
-                    f"{self.provider} timed out after {self.timeout}s"
+                    f"{self.provider} timed out after {self.timeout}s "
+                    f"(partial stdout={len(partial_stdout)} chars, "
+                    f"stderr={len(partial_stderr)} chars)"
                 ) from exc
             if result.returncode != 0:
                 detail = result.stderr.strip()[-2000:]
@@ -107,8 +120,9 @@ class CodexGenerator(CliGenerator):
             "--color",
             "never",
         ]
-        if schema_path is not None:
-            command.extend(["--output-schema", str(schema_path)])
+        # Codex can repeatedly fail to finalize code-heavy responses when
+        # --output-schema is active. The common generation service still enforces
+        # the exact same JSON Schema locally before any files are written.
         return command
 
 
@@ -144,3 +158,11 @@ class AntigravityGenerator(CliGenerator):
             "--print",
             request.prompt,
         ]
+
+
+def _timeout_text(value: str | bytes | None) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, bytes):
+        return value.decode(errors="replace")
+    return value
