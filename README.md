@@ -2,7 +2,7 @@
 
 This repository experiments with translating GNU Coreutils `cat.c` to Go using the SPECTRA method from `spectra.pdf`.
 
-The local workflow uses `opencode` agents to generate baseline and SPECTRA-guided Go packages, then evaluates every generated binary against `/usr/bin/cat`.
+The workflow can use OpenRouter or the local Codex, OpenCode, and Antigravity CLIs to generate baseline and SPECTRA-guided Go packages, then evaluates every generated binary against `/usr/bin/cat`.
 
 ## Workflow
 
@@ -42,7 +42,15 @@ LLM(cat.c + description spec) -> Go candidate
 
 The script intentionally does not combine all specs in one prompt. The paper reports that larger combined prompts can degrade translation quality.
 
-## Agent Layout
+## Generator strategies
+
+Every backend implements the same provider-neutral generation contract. Specs are
+plain Markdown. Candidate packages are returned as strict JSON and validated before
+the runner writes `go.mod` and `.go` files. The CLIs run without workspace write
+access; OpenRouter uses the official `openai` Python package and requires model
+support for structured outputs.
+
+## Run Layout
 
 Each candidate gets an isolated package directory.
 
@@ -66,21 +74,36 @@ flowchart TB
 
 ## Running
 
-Use the faster model that produced the successful local run:
+Install the locked environment:
 
 ```bash
-./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --auto-approve
+uv sync --dev
+```
+
+Select exactly one provider and model per generation run:
+
+```bash
+uv run ./run_spectra_cat_go.py --provider codex --model MODEL
+uv run ./run_spectra_cat_go.py --provider opencode --model PROVIDER/MODEL
+uv run ./run_spectra_cat_go.py --provider antigravity --model "MODEL LABEL"
+OPENROUTER_API_KEY=... uv run ./run_spectra_cat_go.py --provider openrouter --model PROVIDER/MODEL
 ```
 
 Useful options:
 
 ```bash
-./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --candidates 3 --auto-approve
-./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --auto-approve --opencode-timeout 300
-./run_spectra_cat_go.py --model openai/gpt-5.4-mini-fast --evaluate-existing .spectra-runs/20260701T015652Z
+uv run ./run_spectra_cat_go.py --provider codex --model MODEL --candidates 3
+uv run ./run_spectra_cat_go.py --provider codex --model MODEL --generation-timeout 300 --max-retries 2
+uv run ./run_spectra_cat_go.py --evaluate-existing .spectra-runs/20260701T015652Z
 ```
 
 Generated run artifacts are ignored by git under `.spectra-runs/`.
+Each new run includes `run.json` with provider/model data, hashes, versions, timings,
+and generation-attempt outcomes. Secrets are never written to this manifest.
+
+Executable overrides are available through `CODEX_BIN`, `OPENCODE_BIN`, and
+`ANTIGRAVITY_BIN` (which defaults to `agy`).
+OpenRouter credentials are read only from `OPENROUTER_API_KEY`.
 
 ## Evaluation
 
