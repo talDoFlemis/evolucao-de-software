@@ -1,0 +1,2 @@
+# cat
+./main.go:263:24: undefined: syscall.FcntlInt

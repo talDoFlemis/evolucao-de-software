@@ -1,0 +1,214 @@
+2026-07-06T01:22:24Z INFO    spectra_runner: run directory: .spectra-runs/20260706T012224Z
+2026-07-06T01:22:24Z INFO    spectra_runner: mode: generation and evaluation
+2026-07-06T01:22:24Z INFO    spectra_runner: candidates/group: 3; test timeout: 5s; generation timeout: 600s; max retries: 2
+2026-07-06T01:22:24Z INFO    spectra_runner: provider/model: antigravity/claude-sonnet-4.6
+2026-07-06T01:22:24Z INFO    spectra_runner: generating oracle outputs for 17 tests
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=no_args_stdin
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=plain_file
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=multiple_files
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=dash_mixed
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=number_all
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=number_nonblank
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=number_nonblank_overrides_number
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=squeeze_blank
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=show_ends
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=show_tabs
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=show_nonprinting
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=show_all
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=option_e
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=option_t
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=ignored_u
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=long_options
+2026-07-06T01:22:24Z DEBUG   spectra_runner: running oracle test=missing_file
+2026-07-06T01:22:24Z DEBUG   spectra_runner: updated run manifest calls=0
+2026-07-06T01:22:24Z INFO    spectra_runner: generating static and natural-language specifications
+2026-07-06T01:22:24Z INFO    spectra_runner: generation step=static-spec attempt=1/3 format=text prompt_chars=29926
+2026-07-06T01:22:24Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=static-spec cwd=/tmp/spectra-antigravity-_awirzmj
+2026-07-06T01:22:51Z DEBUG   spectra_runner: CLI completed provider=antigravity request=static-spec duration=26.801s stdout_chars=5988 stderr_chars=0
+2026-07-06T01:22:51Z DEBUG   spectra_runner: updated run manifest calls=1
+2026-07-06T01:22:51Z INFO    spectra_runner: generation completed step=static-spec attempt=1 duration=26.803s response_chars=5987
+2026-07-06T01:22:51Z INFO    spectra_runner: generation step=descriptions attempt=1/3 format=text prompt_chars=29777
+2026-07-06T01:22:51Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=descriptions cwd=/tmp/spectra-antigravity-4h7ru3yb
+2026-07-06T01:23:05Z DEBUG   spectra_runner: CLI completed provider=antigravity request=descriptions duration=14.683s stdout_chars=6575 stderr_chars=0
+2026-07-06T01:23:05Z DEBUG   spectra_runner: updated run manifest calls=2
+2026-07-06T01:23:05Z INFO    spectra_runner: generation completed step=descriptions attempt=1 duration=14.685s response_chars=6574
+2026-07-06T01:23:05Z INFO    spectra_runner: candidate 1/6: baseline_1
+2026-07-06T01:23:05Z INFO    spectra_runner: generating candidate: baseline_1 (baseline/baseline)
+2026-07-06T01:23:05Z INFO    spectra_runner: generation step=baseline_1 attempt=1/3 format=files_json prompt_chars=30101
+2026-07-06T01:23:05Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=baseline_1 cwd=/tmp/spectra-antigravity-2_y76wpv
+2026-07-06T01:23:35Z INFO    spectra_runner: generation step=baseline_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:24:05Z INFO    spectra_runner: generation step=baseline_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:24:35Z INFO    spectra_runner: generation step=baseline_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:25:05Z INFO    spectra_runner: generation step=baseline_1 still running; elapsed=120s timeout=600s
+2026-07-06T01:25:32Z DEBUG   spectra_runner: CLI completed provider=antigravity request=baseline_1 duration=146.983s stdout_chars=10213 stderr_chars=0
+2026-07-06T01:25:32Z DEBUG   spectra_runner: updated run manifest calls=3
+2026-07-06T01:25:32Z INFO    spectra_runner: generation completed step=baseline_1 attempt=1 duration=146.985s response_chars=10212
+2026-07-06T01:25:32Z INFO    spectra_runner: candidate 2/6: baseline_2
+2026-07-06T01:25:32Z INFO    spectra_runner: generating candidate: baseline_2 (baseline/baseline)
+2026-07-06T01:25:32Z INFO    spectra_runner: generation step=baseline_2 attempt=1/3 format=files_json prompt_chars=30101
+2026-07-06T01:25:32Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=baseline_2 cwd=/tmp/spectra-antigravity-57klykcs
+2026-07-06T01:26:02Z INFO    spectra_runner: generation step=baseline_2 still running; elapsed=30s timeout=600s
+2026-07-06T01:26:32Z INFO    spectra_runner: generation step=baseline_2 still running; elapsed=60s timeout=600s
+2026-07-06T01:26:40Z DEBUG   spectra_runner: CLI completed provider=antigravity request=baseline_2 duration=67.312s stdout_chars=9672 stderr_chars=0
+2026-07-06T01:26:40Z DEBUG   spectra_runner: updated run manifest calls=4
+2026-07-06T01:26:40Z INFO    spectra_runner: generation completed step=baseline_2 attempt=1 duration=67.314s response_chars=9671
+2026-07-06T01:26:40Z INFO    spectra_runner: candidate 3/6: baseline_3
+2026-07-06T01:26:40Z INFO    spectra_runner: generating candidate: baseline_3 (baseline/baseline)
+2026-07-06T01:26:40Z INFO    spectra_runner: generation step=baseline_3 attempt=1/3 format=files_json prompt_chars=30101
+2026-07-06T01:26:40Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=baseline_3 cwd=/tmp/spectra-antigravity-3pb2vb81
+2026-07-06T01:27:10Z INFO    spectra_runner: generation step=baseline_3 still running; elapsed=30s timeout=600s
+2026-07-06T01:27:40Z INFO    spectra_runner: generation step=baseline_3 still running; elapsed=60s timeout=600s
+2026-07-06T01:27:43Z DEBUG   spectra_runner: CLI completed provider=antigravity request=baseline_3 duration=63.099s stdout_chars=12964 stderr_chars=0
+2026-07-06T01:27:43Z DEBUG   spectra_runner: updated run manifest calls=5
+2026-07-06T01:27:43Z INFO    spectra_runner: generation completed step=baseline_3 attempt=1 duration=63.100s response_chars=12963
+2026-07-06T01:27:43Z INFO    spectra_runner: candidate 4/6: spectra_static_1
+2026-07-06T01:27:43Z INFO    spectra_runner: generating candidate: spectra_static_1 (spectra/static)
+2026-07-06T01:27:43Z INFO    spectra_runner: generation step=spectra_static_1 attempt=1/3 format=files_json prompt_chars=36258
+2026-07-06T01:27:43Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_static_1 cwd=/tmp/spectra-antigravity-0qtrf7w1
+2026-07-06T01:28:13Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:28:43Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:29:13Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:29:32Z DEBUG   spectra_runner: CLI completed provider=antigravity request=spectra_static_1 duration=109.091s stdout_chars=12212 stderr_chars=0
+2026-07-06T01:29:32Z DEBUG   spectra_runner: updated run manifest calls=6
+2026-07-06T01:29:32Z WARNING spectra_runner: generation failed step=spectra_static_1 attempt=1 duration=109.093s error=candidate response is not strict JSON: Expecting value: line 1 column 1 (char 0)
+2026-07-06T01:29:32Z INFO    spectra_runner: retrying generation step=spectra_static_1 after 1s
+2026-07-06T01:29:33Z INFO    spectra_runner: generation step=spectra_static_1 attempt=2/3 format=files_json prompt_chars=36258
+2026-07-06T01:29:33Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_static_1 cwd=/tmp/spectra-antigravity-gy5uyiyb
+2026-07-06T01:30:03Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:30:33Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:31:03Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:31:08Z DEBUG   spectra_runner: CLI completed provider=antigravity request=spectra_static_1 duration=95.197s stdout_chars=9944 stderr_chars=0
+2026-07-06T01:31:08Z DEBUG   spectra_runner: updated run manifest calls=7
+2026-07-06T01:31:08Z WARNING spectra_runner: generation failed step=spectra_static_1 attempt=2 duration=95.199s error=candidate response is not strict JSON: Expecting ',' delimiter: line 1 column 8167 (char 8166)
+2026-07-06T01:31:08Z INFO    spectra_runner: retrying generation step=spectra_static_1 after 2s
+2026-07-06T01:31:10Z INFO    spectra_runner: generation step=spectra_static_1 attempt=3/3 format=files_json prompt_chars=36258
+2026-07-06T01:31:10Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_static_1 cwd=/tmp/spectra-antigravity-oirx2gm7
+2026-07-06T01:31:40Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:32:10Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:32:40Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:33:09Z DEBUG   spectra_runner: CLI completed provider=antigravity request=spectra_static_1 duration=118.529s stdout_chars=10157 stderr_chars=0
+2026-07-06T01:33:09Z DEBUG   spectra_runner: updated run manifest calls=8
+2026-07-06T01:33:09Z WARNING spectra_runner: generation failed step=spectra_static_1 attempt=3 duration=118.548s error=candidate response is not strict JSON: Unterminated string starting at: line 1 column 93 (char 92)
+2026-07-06T01:33:09Z WARNING spectra_runner: candidate generation failed for spectra_static_1: spectra_static_1 failed after 3 attempts: candidate response is not strict JSON: Unterminated string starting at: line 1 column 93 (char 92)
+2026-07-06T01:33:09Z INFO    spectra_runner: candidate 5/6: spectra_io_1
+2026-07-06T01:33:09Z INFO    spectra_runner: generating candidate: spectra_io_1 (spectra/io)
+2026-07-06T01:33:09Z INFO    spectra_runner: generation step=spectra_io_1 attempt=1/3 format=files_json prompt_chars=35434
+2026-07-06T01:33:09Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_io_1 cwd=/tmp/spectra-antigravity-7eslrrcu
+2026-07-06T01:33:39Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:34:09Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:34:39Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:35:09Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=120s timeout=600s
+2026-07-06T01:35:39Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=150s timeout=600s
+2026-07-06T01:35:40Z DEBUG   spectra_runner: CLI completed provider=antigravity request=spectra_io_1 duration=151.051s stdout_chars=10335 stderr_chars=0
+2026-07-06T01:35:40Z DEBUG   spectra_runner: updated run manifest calls=9
+2026-07-06T01:35:40Z WARNING spectra_runner: generation failed step=spectra_io_1 attempt=1 duration=151.053s error=candidate response is not strict JSON: Expecting value: line 1 column 1 (char 0)
+2026-07-06T01:35:40Z INFO    spectra_runner: retrying generation step=spectra_io_1 after 1s
+2026-07-06T01:35:41Z INFO    spectra_runner: generation step=spectra_io_1 attempt=2/3 format=files_json prompt_chars=35434
+2026-07-06T01:35:41Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_io_1 cwd=/tmp/spectra-antigravity-dxjrf___
+2026-07-06T01:36:11Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:36:41Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:37:11Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:37:41Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=120s timeout=600s
+2026-07-06T01:38:11Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=150s timeout=600s
+2026-07-06T01:38:41Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=180s timeout=600s
+2026-07-06T01:39:11Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=210s timeout=600s
+2026-07-06T01:39:41Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=240s timeout=600s
+2026-07-06T01:40:11Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=270s timeout=600s
+2026-07-06T01:40:12Z DEBUG   spectra_runner: CLI completed provider=antigravity request=spectra_io_1 duration=270.894s stdout_chars=137461 stderr_chars=0
+2026-07-06T01:40:12Z DEBUG   spectra_runner: updated run manifest calls=10
+2026-07-06T01:40:12Z INFO    spectra_runner: generation completed step=spectra_io_1 attempt=2 duration=270.896s response_chars=137460
+2026-07-06T01:40:12Z INFO    spectra_runner: candidate 6/6: spectra_descriptions_1
+2026-07-06T01:40:12Z INFO    spectra_runner: generating candidate: spectra_descriptions_1 (spectra/descriptions)
+2026-07-06T01:40:12Z INFO    spectra_runner: generation step=spectra_descriptions_1 attempt=1/3 format=files_json prompt_chars=36863
+2026-07-06T01:40:12Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_descriptions_1 cwd=/tmp/spectra-antigravity-1uqgerd1
+2026-07-06T01:40:42Z INFO    spectra_runner: generation step=spectra_descriptions_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:41:12Z INFO    spectra_runner: generation step=spectra_descriptions_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:41:42Z INFO    spectra_runner: generation step=spectra_descriptions_1 still running; elapsed=90s timeout=600s
+2026-07-06T01:42:12Z INFO    spectra_runner: generation step=spectra_descriptions_1 still running; elapsed=120s timeout=600s
+2026-07-06T01:42:20Z DEBUG   spectra_runner: updated run manifest calls=11
+2026-07-06T01:42:20Z WARNING spectra_runner: generation failed step=spectra_descriptions_1 attempt=1 duration=128.589s error=antigravity returned an empty response
+2026-07-06T01:42:20Z INFO    spectra_runner: retrying generation step=spectra_descriptions_1 after 1s
+2026-07-06T01:42:21Z INFO    spectra_runner: generation step=spectra_descriptions_1 attempt=2/3 format=files_json prompt_chars=36863
+2026-07-06T01:42:21Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_descriptions_1 cwd=/tmp/spectra-antigravity-zr8ltmb3
+2026-07-06T01:42:25Z DEBUG   spectra_runner: updated run manifest calls=12
+2026-07-06T01:42:25Z WARNING spectra_runner: generation failed step=spectra_descriptions_1 attempt=2 duration=4.190s error=antigravity returned an empty response
+2026-07-06T01:42:25Z INFO    spectra_runner: retrying generation step=spectra_descriptions_1 after 2s
+2026-07-06T01:42:27Z INFO    spectra_runner: generation step=spectra_descriptions_1 attempt=3/3 format=files_json prompt_chars=36863
+2026-07-06T01:42:27Z DEBUG   spectra_runner: starting CLI provider=antigravity executable=agy model=claude-sonnet-4.6 request=spectra_descriptions_1 cwd=/tmp/spectra-antigravity-boo1ohsf
+2026-07-06T01:42:32Z DEBUG   spectra_runner: updated run manifest calls=13
+2026-07-06T01:42:32Z WARNING spectra_runner: generation failed step=spectra_descriptions_1 attempt=3 duration=4.136s error=antigravity returned an empty response
+2026-07-06T01:42:32Z WARNING spectra_runner: candidate generation failed for spectra_descriptions_1: spectra_descriptions_1 failed after 3 attempts: antigravity returned an empty response
+2026-07-06T01:42:32Z INFO    spectra_runner: starting evaluation of 6 candidates
+2026-07-06T01:42:32Z INFO    spectra_runner: evaluating candidate baseline_1 (baseline/baseline)
+2026-07-06T01:42:32Z DEBUG   spectra_runner: tidying candidate=baseline_1 package=.spectra-runs/20260706T012224Z/packages/baseline_1
+2026-07-06T01:42:32Z DEBUG   spectra_runner: building candidate=baseline_1 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T012224Z/.eval-bin/baseline_1
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_1 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:42:32Z INFO    spectra_runner: candidate baseline_1 passed 16/17 tests (94.12%)
+2026-07-06T01:42:32Z INFO    spectra_runner: evaluating candidate baseline_2 (baseline/baseline)
+2026-07-06T01:42:32Z DEBUG   spectra_runner: tidying candidate=baseline_2 package=.spectra-runs/20260706T012224Z/packages/baseline_2
+2026-07-06T01:42:32Z DEBUG   spectra_runner: building candidate=baseline_2 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T012224Z/.eval-bin/baseline_2
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=baseline_2 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:42:32Z INFO    spectra_runner: candidate baseline_2 passed 16/17 tests (94.12%)
+2026-07-06T01:42:32Z INFO    spectra_runner: evaluating candidate baseline_3 (baseline/baseline)
+2026-07-06T01:42:32Z DEBUG   spectra_runner: tidying candidate=baseline_3 package=.spectra-runs/20260706T012224Z/packages/baseline_3
+2026-07-06T01:42:32Z DEBUG   spectra_runner: building candidate=baseline_3 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T012224Z/.eval-bin/baseline_3
+2026-07-06T01:42:32Z WARNING spectra_runner: go build failed for baseline_3; see .spectra-runs/20260706T012224Z/reports/baseline_3.build.log
+2026-07-06T01:42:32Z INFO    spectra_runner: evaluating candidate spectra_static_1 (spectra/static)
+2026-07-06T01:42:32Z WARNING spectra_runner: candidate spectra_static_1 cannot build: missing go.mod
+2026-07-06T01:42:32Z INFO    spectra_runner: evaluating candidate spectra_io_1 (spectra/io)
+2026-07-06T01:42:32Z DEBUG   spectra_runner: tidying candidate=spectra_io_1 package=.spectra-runs/20260706T012224Z/packages/spectra_io_1
+2026-07-06T01:42:32Z DEBUG   spectra_runner: building candidate=spectra_io_1 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T012224Z/.eval-bin/spectra_io_1
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z DEBUG   spectra_runner: candidate=spectra_io_1 test=missing_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:42:32Z INFO    spectra_runner: candidate spectra_io_1 passed 17/17 tests (100.00%)
+2026-07-06T01:42:32Z INFO    spectra_runner: evaluating candidate spectra_descriptions_1 (spectra/descriptions)
+2026-07-06T01:42:32Z WARNING spectra_runner: candidate spectra_descriptions_1 cannot build: missing go.mod
+2026-07-06T01:42:32Z INFO    spectra_runner: summary: .spectra-runs/20260706T012224Z/reports/summary.md
+2026-07-06T01:42:32Z INFO    spectra_runner: scores: .spectra-runs/20260706T012224Z/reports/scores.tsv

@@ -1,0 +1,7 @@
+group	group_order	candidate	modality	build_status	passed	total	score	full_pass
+baseline	1	baseline_1	baseline	built	14	17	0.823529	0
+baseline	2	baseline_2	baseline	built	14	17	0.823529	0
+baseline	3	baseline_3	baseline	built	16	17	0.941176	0
+spectra	1	spectra_static_1	static	built	16	17	0.941176	0
+spectra	2	spectra_io_1	io	built	17	17	1.000000	1
+spectra	3	spectra_descriptions_1	descriptions	build_failed	0	17	0.000000	0

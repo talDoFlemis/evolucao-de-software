@@ -1,0 +1,214 @@
+2026-07-06T01:32:20Z INFO    spectra_runner: run directory: .spectra-runs/20260706T013220Z
+2026-07-06T01:32:20Z INFO    spectra_runner: mode: generation and evaluation
+2026-07-06T01:32:20Z INFO    spectra_runner: candidates/group: 3; test timeout: 5s; generation timeout: 600s; max retries: 2
+2026-07-06T01:32:20Z INFO    spectra_runner: provider/model: codex/gpt-5.5
+2026-07-06T01:32:20Z INFO    spectra_runner: generating oracle outputs for 17 tests
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=no_args_stdin
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=plain_file
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=multiple_files
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=dash_mixed
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=number_all
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=number_nonblank
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=number_nonblank_overrides_number
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=squeeze_blank
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=show_ends
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=show_tabs
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=show_nonprinting
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=show_all
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=option_e
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=option_t
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=ignored_u
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=long_options
+2026-07-06T01:32:20Z DEBUG   spectra_runner: running oracle test=missing_file
+2026-07-06T01:32:21Z DEBUG   spectra_runner: updated run manifest calls=0
+2026-07-06T01:32:21Z INFO    spectra_runner: generating static and natural-language specifications
+2026-07-06T01:32:21Z INFO    spectra_runner: generation step=static-spec attempt=1/3 format=text prompt_chars=29926
+2026-07-06T01:32:21Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=static-spec cwd=/tmp/spectra-codex-m_ah3nbs
+2026-07-06T01:32:48Z DEBUG   spectra_runner: CLI completed provider=codex request=static-spec duration=27.953s stdout_chars=5101 stderr_chars=35300
+2026-07-06T01:32:48Z DEBUG   spectra_runner: updated run manifest calls=1
+2026-07-06T01:32:48Z INFO    spectra_runner: generation completed step=static-spec attempt=1 duration=27.955s response_chars=5100
+2026-07-06T01:32:48Z INFO    spectra_runner: generation step=descriptions attempt=1/3 format=text prompt_chars=29777
+2026-07-06T01:32:48Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=descriptions cwd=/tmp/spectra-codex-zbg7354f
+2026-07-06T01:33:05Z DEBUG   spectra_runner: CLI completed provider=codex request=descriptions duration=16.714s stdout_chars=3072 stderr_chars=33121
+2026-07-06T01:33:05Z DEBUG   spectra_runner: updated run manifest calls=2
+2026-07-06T01:33:05Z INFO    spectra_runner: generation completed step=descriptions attempt=1 duration=16.716s response_chars=3071
+2026-07-06T01:33:05Z INFO    spectra_runner: candidate 1/6: baseline_1
+2026-07-06T01:33:05Z INFO    spectra_runner: generating candidate: baseline_1 (baseline/baseline)
+2026-07-06T01:33:05Z INFO    spectra_runner: generation step=baseline_1 attempt=1/3 format=files_json prompt_chars=30101
+2026-07-06T01:33:05Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=baseline_1 cwd=/tmp/spectra-codex-7st7z3co
+2026-07-06T01:33:35Z INFO    spectra_runner: generation step=baseline_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:33:49Z DEBUG   spectra_runner: CLI completed provider=codex request=baseline_1 duration=43.900s stdout_chars=5754 stderr_chars=36128
+2026-07-06T01:33:49Z DEBUG   spectra_runner: updated run manifest calls=3
+2026-07-06T01:33:49Z INFO    spectra_runner: generation completed step=baseline_1 attempt=1 duration=43.902s response_chars=5753
+2026-07-06T01:33:49Z INFO    spectra_runner: candidate 2/6: baseline_2
+2026-07-06T01:33:49Z INFO    spectra_runner: generating candidate: baseline_2 (baseline/baseline)
+2026-07-06T01:33:49Z INFO    spectra_runner: generation step=baseline_2 attempt=1/3 format=files_json prompt_chars=30101
+2026-07-06T01:33:49Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=baseline_2 cwd=/tmp/spectra-codex-za5hd9z4
+2026-07-06T01:34:19Z INFO    spectra_runner: generation step=baseline_2 still running; elapsed=30s timeout=600s
+2026-07-06T01:34:38Z DEBUG   spectra_runner: CLI completed provider=codex request=baseline_2 duration=49.184s stdout_chars=6483 stderr_chars=36857
+2026-07-06T01:34:38Z DEBUG   spectra_runner: updated run manifest calls=4
+2026-07-06T01:34:38Z INFO    spectra_runner: generation completed step=baseline_2 attempt=1 duration=49.185s response_chars=6482
+2026-07-06T01:34:38Z INFO    spectra_runner: candidate 3/6: baseline_3
+2026-07-06T01:34:38Z INFO    spectra_runner: generating candidate: baseline_3 (baseline/baseline)
+2026-07-06T01:34:38Z INFO    spectra_runner: generation step=baseline_3 attempt=1/3 format=files_json prompt_chars=30101
+2026-07-06T01:34:38Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=baseline_3 cwd=/tmp/spectra-codex-br3mpseu
+2026-07-06T01:35:08Z INFO    spectra_runner: generation step=baseline_3 still running; elapsed=30s timeout=600s
+2026-07-06T01:35:38Z INFO    spectra_runner: generation step=baseline_3 still running; elapsed=60s timeout=600s
+2026-07-06T01:35:39Z DEBUG   spectra_runner: CLI completed provider=codex request=baseline_3 duration=60.712s stdout_chars=7483 stderr_chars=37857
+2026-07-06T01:35:39Z DEBUG   spectra_runner: updated run manifest calls=5
+2026-07-06T01:35:39Z INFO    spectra_runner: generation completed step=baseline_3 attempt=1 duration=60.714s response_chars=7482
+2026-07-06T01:35:39Z INFO    spectra_runner: candidate 4/6: spectra_static_1
+2026-07-06T01:35:39Z INFO    spectra_runner: generating candidate: spectra_static_1 (spectra/static)
+2026-07-06T01:35:39Z INFO    spectra_runner: generation step=spectra_static_1 attempt=1/3 format=files_json prompt_chars=35371
+2026-07-06T01:35:39Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=spectra_static_1 cwd=/tmp/spectra-codex-af5hjnp1
+2026-07-06T01:36:09Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:36:39Z INFO    spectra_runner: generation step=spectra_static_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:36:42Z DEBUG   spectra_runner: CLI completed provider=codex request=spectra_static_1 duration=62.558s stdout_chars=6929 stderr_chars=42573
+2026-07-06T01:36:42Z DEBUG   spectra_runner: updated run manifest calls=6
+2026-07-06T01:36:42Z INFO    spectra_runner: generation completed step=spectra_static_1 attempt=1 duration=62.793s response_chars=6928
+2026-07-06T01:36:42Z INFO    spectra_runner: candidate 5/6: spectra_io_1
+2026-07-06T01:36:42Z INFO    spectra_runner: generating candidate: spectra_io_1 (spectra/io)
+2026-07-06T01:36:42Z INFO    spectra_runner: generation step=spectra_io_1 attempt=1/3 format=files_json prompt_chars=35434
+2026-07-06T01:36:42Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=spectra_io_1 cwd=/tmp/spectra-codex-zi2vbqwt
+2026-07-06T01:37:12Z INFO    spectra_runner: generation step=spectra_io_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:37:33Z DEBUG   spectra_runner: CLI completed provider=codex request=spectra_io_1 duration=51.628s stdout_chars=6013 stderr_chars=41720
+2026-07-06T01:37:33Z DEBUG   spectra_runner: updated run manifest calls=7
+2026-07-06T01:37:33Z INFO    spectra_runner: generation completed step=spectra_io_1 attempt=1 duration=51.630s response_chars=6012
+2026-07-06T01:37:33Z INFO    spectra_runner: candidate 6/6: spectra_descriptions_1
+2026-07-06T01:37:33Z INFO    spectra_runner: generating candidate: spectra_descriptions_1 (spectra/descriptions)
+2026-07-06T01:37:33Z INFO    spectra_runner: generation step=spectra_descriptions_1 attempt=1/3 format=files_json prompt_chars=33360
+2026-07-06T01:37:33Z DEBUG   spectra_runner: starting CLI provider=codex executable=codex model=gpt-5.5 request=spectra_descriptions_1 cwd=/tmp/spectra-codex-dx_cwfrf
+2026-07-06T01:38:03Z INFO    spectra_runner: generation step=spectra_descriptions_1 still running; elapsed=30s timeout=600s
+2026-07-06T01:38:33Z INFO    spectra_runner: generation step=spectra_descriptions_1 still running; elapsed=60s timeout=600s
+2026-07-06T01:38:39Z DEBUG   spectra_runner: CLI completed provider=codex request=spectra_descriptions_1 duration=66.092s stdout_chars=7382 stderr_chars=41015
+2026-07-06T01:38:39Z DEBUG   spectra_runner: updated run manifest calls=8
+2026-07-06T01:38:39Z INFO    spectra_runner: generation completed step=spectra_descriptions_1 attempt=1 duration=66.093s response_chars=7381
+2026-07-06T01:38:39Z INFO    spectra_runner: starting evaluation of 6 candidates
+2026-07-06T01:38:39Z INFO    spectra_runner: evaluating candidate baseline_1 (baseline/baseline)
+2026-07-06T01:38:39Z DEBUG   spectra_runner: tidying candidate=baseline_1 package=.spectra-runs/20260706T013220Z/packages/baseline_1
+2026-07-06T01:38:40Z DEBUG   spectra_runner: building candidate=baseline_1 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T013220Z/.eval-bin/baseline_1
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=squeeze_blank pass=False stdout=False stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_1 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:38:40Z INFO    spectra_runner: candidate baseline_1 passed 15/17 tests (88.24%)
+2026-07-06T01:38:40Z INFO    spectra_runner: evaluating candidate baseline_2 (baseline/baseline)
+2026-07-06T01:38:40Z DEBUG   spectra_runner: tidying candidate=baseline_2 package=.spectra-runs/20260706T013220Z/packages/baseline_2
+2026-07-06T01:38:40Z DEBUG   spectra_runner: building candidate=baseline_2 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T013220Z/.eval-bin/baseline_2
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_2 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:38:40Z INFO    spectra_runner: candidate baseline_2 passed 16/17 tests (94.12%)
+2026-07-06T01:38:40Z INFO    spectra_runner: evaluating candidate baseline_3 (baseline/baseline)
+2026-07-06T01:38:40Z DEBUG   spectra_runner: tidying candidate=baseline_3 package=.spectra-runs/20260706T013220Z/packages/baseline_3
+2026-07-06T01:38:40Z DEBUG   spectra_runner: building candidate=baseline_3 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T013220Z/.eval-bin/baseline_3
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=squeeze_blank pass=False stdout=False stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=baseline_3 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:38:40Z INFO    spectra_runner: candidate baseline_3 passed 15/17 tests (88.24%)
+2026-07-06T01:38:40Z INFO    spectra_runner: evaluating candidate spectra_static_1 (spectra/static)
+2026-07-06T01:38:40Z DEBUG   spectra_runner: tidying candidate=spectra_static_1 package=.spectra-runs/20260706T013220Z/packages/spectra_static_1
+2026-07-06T01:38:40Z DEBUG   spectra_runner: building candidate=spectra_static_1 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T013220Z/.eval-bin/spectra_static_1
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_static_1 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:38:40Z INFO    spectra_runner: candidate spectra_static_1 passed 16/17 tests (94.12%)
+2026-07-06T01:38:40Z INFO    spectra_runner: evaluating candidate spectra_io_1 (spectra/io)
+2026-07-06T01:38:40Z DEBUG   spectra_runner: tidying candidate=spectra_io_1 package=.spectra-runs/20260706T013220Z/packages/spectra_io_1
+2026-07-06T01:38:40Z DEBUG   spectra_runner: building candidate=spectra_io_1 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T013220Z/.eval-bin/spectra_io_1
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:40Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_io_1 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:38:41Z INFO    spectra_runner: candidate spectra_io_1 passed 16/17 tests (94.12%)
+2026-07-06T01:38:41Z INFO    spectra_runner: evaluating candidate spectra_descriptions_1 (spectra/descriptions)
+2026-07-06T01:38:41Z DEBUG   spectra_runner: tidying candidate=spectra_descriptions_1 package=.spectra-runs/20260706T013220Z/packages/spectra_descriptions_1
+2026-07-06T01:38:41Z DEBUG   spectra_runner: building candidate=spectra_descriptions_1 binary=/home/flemis/codes/evolucao-de-software/.spectra-runs/20260706T013220Z/.eval-bin/spectra_descriptions_1
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=no_args_stdin pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=plain_file pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=multiple_files pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=dash_mixed pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=number_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=number_nonblank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=number_nonblank_overrides_number pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=squeeze_blank pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=show_ends pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=show_tabs pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=show_nonprinting pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=show_all pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=option_e pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=option_t pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=ignored_u pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=long_options pass=True stdout=True stderr=True status=True
+2026-07-06T01:38:41Z DEBUG   spectra_runner: candidate=spectra_descriptions_1 test=missing_file pass=False stdout=True stderr=False status=True
+2026-07-06T01:38:41Z INFO    spectra_runner: candidate spectra_descriptions_1 passed 16/17 tests (94.12%)
+2026-07-06T01:38:41Z INFO    spectra_runner: summary: .spectra-runs/20260706T013220Z/reports/summary.md
+2026-07-06T01:38:41Z INFO    spectra_runner: scores: .spectra-runs/20260706T013220Z/reports/scores.tsv

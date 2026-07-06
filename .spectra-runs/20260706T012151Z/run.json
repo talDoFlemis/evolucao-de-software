@@ -1,0 +1,102 @@
+{
+  "provider": "antigravity",
+  "model": "gemini-3.5-flash",
+  "started_at": "2026-07-06T01:21:51.503934+00:00",
+  "updated_at": "2026-07-06T01:33:55.858895+00:00",
+  "generation_timeout_seconds": 600,
+  "max_retries": 2,
+  "source_sha256": "84bbbab93db1b5a5ff84f150677aa05234550dd56518125f0c39f91e82276a7b",
+  "generator_version": "1.0.7",
+  "calls": [
+    {
+      "name": "static-spec",
+      "format": "text",
+      "prompt_sha256": "5a6e55b3c63b0bd15c34f77ce7b8584d4145088324a7b8e4614de8a897ebba2f",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:21:51.624097+00:00",
+      "duration_seconds": 21.81,
+      "error": null
+    },
+    {
+      "name": "descriptions",
+      "format": "text",
+      "prompt_sha256": "de9f733008c71cbe4c600553ffd049463fee29dd53287a4bdf1318c99449bcf1",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:22:13.434546+00:00",
+      "duration_seconds": 14.574,
+      "error": null
+    },
+    {
+      "name": "baseline_1",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:22:28.009764+00:00",
+      "duration_seconds": 61.782,
+      "error": null
+    },
+    {
+      "name": "baseline_2",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:23:29.793479+00:00",
+      "duration_seconds": 78.345,
+      "error": null
+    },
+    {
+      "name": "baseline_3",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "failed",
+      "started_at": "2026-07-06T01:24:48.140516+00:00",
+      "duration_seconds": 95.6,
+      "error": "candidate response is not strict JSON: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "name": "baseline_3",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 2,
+      "status": "success",
+      "started_at": "2026-07-06T01:26:24.740907+00:00",
+      "duration_seconds": 99.068,
+      "error": null
+    },
+    {
+      "name": "spectra_static_1",
+      "format": "files_json",
+      "prompt_sha256": "08cc0e4edac858d3a9001565a5b5b5c6aff0f5a83afa38e4db669e09590c2bd9",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:28:03.811394+00:00",
+      "duration_seconds": 207.413,
+      "error": null
+    },
+    {
+      "name": "spectra_io_1",
+      "format": "files_json",
+      "prompt_sha256": "d2ef737661cdf22c328296dd4019f6eb589f945c37741cb3a7fbdab9e9db294a",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:31:31.225830+00:00",
+      "duration_seconds": 72.047,
+      "error": null
+    },
+    {
+      "name": "spectra_descriptions_1",
+      "format": "files_json",
+      "prompt_sha256": "38e3767952b382e954cbf91d496fb5669e3d1dd77a64d99efbce7a36c2178a47",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:32:43.275455+00:00",
+      "duration_seconds": 72.583,
+      "error": null
+    }
+  ]
+}

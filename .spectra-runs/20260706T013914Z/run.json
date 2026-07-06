@@ -1,0 +1,92 @@
+{
+  "provider": "codex",
+  "model": "gpt-5.4",
+  "started_at": "2026-07-06T01:39:14.139112+00:00",
+  "updated_at": "2026-07-06T01:51:56.569011+00:00",
+  "generation_timeout_seconds": 600,
+  "max_retries": 2,
+  "source_sha256": "84bbbab93db1b5a5ff84f150677aa05234550dd56518125f0c39f91e82276a7b",
+  "generator_version": "codex-cli 0.142.5",
+  "calls": [
+    {
+      "name": "static-spec",
+      "format": "text",
+      "prompt_sha256": "5a6e55b3c63b0bd15c34f77ce7b8584d4145088324a7b8e4614de8a897ebba2f",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:39:14.207768+00:00",
+      "duration_seconds": 30.655,
+      "error": null
+    },
+    {
+      "name": "descriptions",
+      "format": "text",
+      "prompt_sha256": "de9f733008c71cbe4c600553ffd049463fee29dd53287a4bdf1318c99449bcf1",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:39:44.863964+00:00",
+      "duration_seconds": 15.899,
+      "error": null
+    },
+    {
+      "name": "baseline_1",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:40:00.764025+00:00",
+      "duration_seconds": 112.688,
+      "error": null
+    },
+    {
+      "name": "baseline_2",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:41:53.453515+00:00",
+      "duration_seconds": 115.152,
+      "error": null
+    },
+    {
+      "name": "baseline_3",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:43:48.607172+00:00",
+      "duration_seconds": 90.177,
+      "error": null
+    },
+    {
+      "name": "spectra_static_1",
+      "format": "files_json",
+      "prompt_sha256": "00a3499a170ac5ae9705ba58abc9a8e32bc2044a6892df9fa448a4e17052c970",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:45:18.785603+00:00",
+      "duration_seconds": 169.815,
+      "error": null
+    },
+    {
+      "name": "spectra_io_1",
+      "format": "files_json",
+      "prompt_sha256": "79a86cf8ddec62f8e14cba52bafe5d91458cf736c62ae42af732db9f0f8b063b",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:48:08.602602+00:00",
+      "duration_seconds": 92.734,
+      "error": null
+    },
+    {
+      "name": "spectra_descriptions_1",
+      "format": "files_json",
+      "prompt_sha256": "b4034794cb139e5a48fe4209e27abb6ab9aefcbe721dccd756b1b06da6a7c865",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:49:41.338300+00:00",
+      "duration_seconds": 135.231,
+      "error": null
+    }
+  ]
+}

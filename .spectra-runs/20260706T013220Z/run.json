@@ -1,0 +1,92 @@
+{
+  "provider": "codex",
+  "model": "gpt-5.5",
+  "started_at": "2026-07-06T01:32:20.933605+00:00",
+  "updated_at": "2026-07-06T01:38:39.995080+00:00",
+  "generation_timeout_seconds": 600,
+  "max_retries": 2,
+  "source_sha256": "84bbbab93db1b5a5ff84f150677aa05234550dd56518125f0c39f91e82276a7b",
+  "generator_version": "codex-cli 0.142.5",
+  "calls": [
+    {
+      "name": "static-spec",
+      "format": "text",
+      "prompt_sha256": "5a6e55b3c63b0bd15c34f77ce7b8584d4145088324a7b8e4614de8a897ebba2f",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:32:21.001436+00:00",
+      "duration_seconds": 27.954,
+      "error": null
+    },
+    {
+      "name": "descriptions",
+      "format": "text",
+      "prompt_sha256": "de9f733008c71cbe4c600553ffd049463fee29dd53287a4bdf1318c99449bcf1",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:32:48.956684+00:00",
+      "duration_seconds": 16.715,
+      "error": null
+    },
+    {
+      "name": "baseline_1",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:33:05.673314+00:00",
+      "duration_seconds": 43.901,
+      "error": null
+    },
+    {
+      "name": "baseline_2",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:33:49.576283+00:00",
+      "duration_seconds": 49.185,
+      "error": null
+    },
+    {
+      "name": "baseline_3",
+      "format": "files_json",
+      "prompt_sha256": "9405360386d73c27ccdbc4c0156c745e89d0e3497909389178969422b82126e4",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:34:38.762255+00:00",
+      "duration_seconds": 60.713,
+      "error": null
+    },
+    {
+      "name": "spectra_static_1",
+      "format": "files_json",
+      "prompt_sha256": "c828db797869f817fee4304169a9a65c06cbea8d8cbda7279e26942daedffee6",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:35:39.477179+00:00",
+      "duration_seconds": 62.559,
+      "error": null
+    },
+    {
+      "name": "spectra_io_1",
+      "format": "files_json",
+      "prompt_sha256": "8b38169e2f1cdbab28afdaf42779bf24423f870de29a8c098aab7c1202041a30",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:36:42.271216+00:00",
+      "duration_seconds": 51.629,
+      "error": null
+    },
+    {
+      "name": "spectra_descriptions_1",
+      "format": "files_json",
+      "prompt_sha256": "25fb6aa294a59a0ddbf52d5d3fedd2b640f1af1c59afa3ca26e3b261b7492cd7",
+      "attempt": 1,
+      "status": "success",
+      "started_at": "2026-07-06T01:37:33.902008+00:00",
+      "duration_seconds": 66.093,
+      "error": null
+    }
+  ]
+}

@@ -333,24 +333,29 @@ machine-readable evidence behind `summary.md`.
 
 ## Local Results
 
-Valid run:
+All recorded runs use `/usr/bin/cat` as the oracle and the same 17-test matrix.
+The `correct@k` columns report the highest number of passing tests among the first
+`k` candidates in that arm.
 
-```text
-.spectra-runs/20260701T015652Z
-provider: opencode
-model: openai/gpt-5.4-mini-fast
-oracle: /usr/bin/cat
-tests: 17
-```
+Antigravity manifests record the requested `--model` value. Runs using slug-style
+labels predate model-label validation and may have used Antigravity's fallback model.
 
-Article-style comparison, using number of passing tests out of 17 as the correctness count:
+| Run | Provider | Model | Method | correct@1 | correct@2 | correct@3 | improvement@1 | improvement@2 | improvement@3 |
+|---|---|---|---|---:|---:|---:|---:|---:|---:|
+| `20260701T015652Z` | OpenCode | `openai/gpt-5.4-mini-fast` | Baseline | 15 | 16 | 16 | - | - | - |
+| `20260701T015652Z` | OpenCode | `openai/gpt-5.4-mini-fast` | SPECTRA | 15 | 17 | 17 | 0% | 6.25% | 6.25% |
+| `20260706T012151Z` | Antigravity | `gemini-3.5-flash` | Baseline | 14 | 14 | 16 | - | - | - |
+| `20260706T012151Z` | Antigravity | `gemini-3.5-flash` | SPECTRA | 16 | 17 | 17 | 14.29% | 21.43% | 6.25% |
+| `20260706T012224Z` | Antigravity | `claude-sonnet-4.6` | Baseline | 16 | 16 | 16 | - | - | - |
+| `20260706T012224Z` | Antigravity | `claude-sonnet-4.6` | SPECTRA | 0 | 17 | 17 | -100% | 6.25% | 6.25% |
+| `20260706T013220Z` | Codex | `gpt-5.5` | Baseline | 15 | 16 | 16 | - | - | - |
+| `20260706T013220Z` | Codex | `gpt-5.5` | SPECTRA | 16 | 16 | 16 | 6.67% | 0% | 0% |
+| `20260706T013914Z` | Codex | `gpt-5.4` | Baseline | 16 | 16 | 16 | - | - | - |
+| `20260706T013914Z` | Codex | `gpt-5.4` | SPECTRA | 16 | 16 | 16 | 0% | 0% | 0% |
 
-| Method | pass@1 correct | pass@2 correct | pass@3 correct | pass@1 improvement | pass@2 improvement | pass@3 improvement |
-|---|---:|---:|---:|---:|---:|---:|
-| Baseline | 15 | 16 | 16 | - | - | - |
-| SPECTRA | 15 | 17 | 17 | 0% | 6.25% | 6.25% |
+### OpenCode — `openai/gpt-5.4-mini-fast`
 
-Candidate-level results:
+Run: `.spectra-runs/20260701T015652Z`
 
 | Candidate | Group | Spec modality | Build | Passed tests | Score | Full pass |
 |---|---|---|---|---:|---:|---:|
@@ -361,7 +366,64 @@ Candidate-level results:
 | `spectra_io_1` | SPECTRA | I/O | built | 17/17 | 1.000000 | yes |
 | `spectra_descriptions_1` | SPECTRA | descriptions | built | 16/17 | 0.941176 | no |
 
-The winning local candidate was `spectra_io_1`. It passed all 17 tests, while the best baseline candidate passed 16 of 17.
+### Antigravity — `gemini-3.5-flash`
+
+Run: `.spectra-runs/20260706T012151Z`
+
+| Candidate | Group | Spec modality | Build | Passed tests | Score | Full pass |
+|---|---|---|---|---:|---:|---:|
+| `baseline_1` | Baseline | none | built | 14/17 | 0.823529 | no |
+| `baseline_2` | Baseline | none | built | 14/17 | 0.823529 | no |
+| `baseline_3` | Baseline | none | built | 16/17 | 0.941176 | no |
+| `spectra_static_1` | SPECTRA | static | built | 16/17 | 0.941176 | no |
+| `spectra_io_1` | SPECTRA | I/O | built | 17/17 | 1.000000 | yes |
+| `spectra_descriptions_1` | SPECTRA | descriptions | build failed | 0/17 | 0.000000 | no |
+
+### Codex — `gpt-5.5`
+
+Run: `.spectra-runs/20260706T013220Z`
+
+| Candidate | Group | Spec modality | Build | Passed tests | Score | Full pass |
+|---|---|---|---|---:|---:|---:|
+| `baseline_1` | Baseline | none | built | 15/17 | 0.882353 | no |
+| `baseline_2` | Baseline | none | built | 16/17 | 0.941176 | no |
+| `baseline_3` | Baseline | none | built | 15/17 | 0.882353 | no |
+| `spectra_static_1` | SPECTRA | static | built | 16/17 | 0.941176 | no |
+| `spectra_io_1` | SPECTRA | I/O | built | 16/17 | 0.941176 | no |
+| `spectra_descriptions_1` | SPECTRA | descriptions | built | 16/17 | 0.941176 | no |
+
+### Codex — `gpt-5.4`
+
+Run: `.spectra-runs/20260706T013914Z`
+
+| Candidate | Group | Spec modality | Build | Passed tests | Score | Full pass |
+|---|---|---|---|---:|---:|---:|
+| `baseline_1` | Baseline | none | built | 16/17 | 0.941176 | no |
+| `baseline_2` | Baseline | none | built | 16/17 | 0.941176 | no |
+| `baseline_3` | Baseline | none | built | 15/17 | 0.882353 | no |
+| `spectra_static_1` | SPECTRA | static | built | 16/17 | 0.941176 | no |
+| `spectra_io_1` | SPECTRA | I/O | built | 16/17 | 0.941176 | no |
+| `spectra_descriptions_1` | SPECTRA | descriptions | built | 16/17 | 0.941176 | no |
+
+### Antigravity — `claude-sonnet-4.6`
+
+Run: `.spectra-runs/20260706T012224Z`
+
+| Candidate | Group | Spec modality | Build | Passed tests | Score | Full pass |
+|---|---|---|---|---:|---:|---:|
+| `baseline_1` | Baseline | none | built | 16/17 | 0.941176 | no |
+| `baseline_2` | Baseline | none | built | 16/17 | 0.941176 | no |
+| `baseline_3` | Baseline | none | build failed | 0/17 | 0.000000 | no |
+| `spectra_static_1` | SPECTRA | static | generation failed | 0/17 | 0.000000 | no |
+| `spectra_io_1` | SPECTRA | I/O | built | 17/17 | 1.000000 | yes |
+| `spectra_descriptions_1` | SPECTRA | descriptions | generation failed | 0/17 | 0.000000 | no |
+
+The OpenCode, Gemini, and Claude Sonnet runs each produced a full-pass
+`spectra_io_1`; their best baseline candidate passed 16 tests. Codex GPT-5.5 improved
+correct@1 from 15 to 16, then tied the baseline at correct@2 and correct@3. Codex
+GPT-5.4 tied baseline and SPECTRA at 16 for every k. Neither Codex run produced a
+full-pass candidate. Failed generation and build outcomes remain zero-scored rather
+than being omitted from comparisons.
 
 ## Notes
 

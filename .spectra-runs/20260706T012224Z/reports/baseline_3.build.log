@@ -1,0 +1,2 @@
+# cat
+./main.go:98:28: undefined: syscall.Fcntl
